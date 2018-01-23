@@ -1,0 +1,12 @@
+{
+  "name": "epadilla/dating",
+  "authors": [
+    {
+      "name": "Raine Padilla",
+      "email": "epadilla7@mail.greenriver.edu"
+    }
+  ],
+  "require": {
+    "bcosca/fatfree-core": "dev-master"
+  }
+}
