@@ -36,17 +36,39 @@
             <form action="" method="#">
                 <div class="col-md-8">
                     <div class="form-group has-feedback">
+                        <!-- First Name -->
                         <label for="fName" class="control-label">First Name</label>
                         <input id="fName" name="fName" type="text" class="form-control">
                         <span class="glyphicon glyphicon glyphicon-user form-control-feedback"></span>
                     </div>
+
+                    <!-- Last Name -->
                     <div class="form-group">
                         <label for="lName" class="control-label">Last Name</label>
                         <input id="lName" name="lName" type="text" class="form-control">
                     </div>
+
+                    <!-- Age -->
                     <div class="form-group">
                         <label for="age" class="control-label">Age</label>
                         <input id="age" name="age" type="text" class="form-control">
+                    </div>
+
+                    <!-- Gender -->
+                    <div class="form-group">
+                        <label>Gender</label><br>
+                        <label class="radio-inline">
+                            <input type="radio" name="gender" value="M"> Male
+                        </label>
+                        <label class="radio-inline">
+                            <input type="radio" name="gender" value="F"> Female
+                        </label>
+                    </div>
+
+                    <!-- Phone Number-->
+                    <div class="form-group">
+                        <label for="phone" class="control-label">Phone Number</label>
+                        <input id="phone" name="phone" class="form-control">
                     </div>
                 </div>
 
@@ -56,6 +78,11 @@
                         <b>Note:</b> All information entered is protected by our <a href="#">privacy policy.</a>
                         Profile information can only be viewed by others with your permission.
                     </div>
+                </div>
+
+                <!-- Submit Button -->
+                <div class="col-md-12">
+                    <input type="submit" class="btn btn-primary pull-right" value="Next >">
                 </div>
 
             </form>
