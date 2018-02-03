@@ -23,16 +23,54 @@
         </div>
     </nav>
 
-    <div class="container">
-        <div class="row panel panel-default">
-            <div class="col-md-6">
-                <!-- Form information -->
+    <div class="container panel panel-default">
+        <div class="col-md-6">
+            <!-- Form information -->
+                <ul class="list-group">
+                    <li class="list-group-item">
+                        <p>Name: {{ @fName }} {{ @lName }}</p>
+                    </li>
+                    <li class="list-group-item">
+                        Gender: {{ @gender }}
+                    </li>
+                    <li class="list-group-item">
+                        Age: {{ @age }}
+                    </li>
+                    <li class="list-group-item">
+                        Phone: {{ @phone }}
+                    </li>
+                    <li class="list-group-item">
+                        Email: {{ @email }}
+                    </li>
+                    <li class="list-group-item">
+                        State: {{ @state }}
+                    </li>
+                    <li class="list-group-item">
+                        Seeking: {{ @seeking }}
+                    </li>
+                    <li class="list-group-item">
+                        Interests:
+                        <repeat group="{{ @inHobbies }}" value="{{ @value }}">
+                            {{ @value }}
+                        </repeat>
+                        <repeat group="{{ $outHobbies }}" value="{{ @value }}">
+                            {{ @value }}
+                        </repeat>
+                    </li>
+                </ul>
+        </div>
 
-            </div>
-            <div class="col-md-6">
-                <!-- Default Av & Bio -->
-
-            </div>
+        <div class="col-md-6">
+            <!-- Default Av & Bio -->
+            <img src="./images/default-avatar.png" alt="Avatar"
+                 class="center-block img-rounded img-responsive">
+            <h3>Biography</h3>
+            <p class="text-center">
+                {{ @biography }}
+            </p>
+        </div>
+        <div class="col-md-12">
+            <button class="btn btn-primary center-block">Contact Me!</button>
         </div>
     </div>
 
