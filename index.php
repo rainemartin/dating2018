@@ -18,18 +18,25 @@ $f3->route('GET /', function(){
     echo $view->render('views/home.html');
 });
 
-$f3->route('GET /form1', function(){
-   $view = new View();
-   echo $view->render('views/personalinfo.html');
+$f3->route('GET|POST /form1', function(){
+    $template = new Template();
+    echo $template->render('views/personalinfo.html');
 });
 
 $f3->route('POST /form2', function(){
     // Set Session Variables
-    $_SESSION['fName'] = $_POST['fName'];
-    $_SESSION['lName'] = $_POST['lName'];
-    $_SESSION['age'] = $_POST['age'];
-    $_SESSION['gender'] = $_POST['gender'];
-    $_SESSION['phone'] = $_POST['phone'];
+    if(isset($_POST['submit']))
+    {
+        $_SESSION['fName'] = $_POST['fName'];
+        $_SESSION['lName'] = $_POST['lName'];
+        $_SESSION['age'] = $_POST['age'];
+        $_SESSION['gender'] = $_POST['gender'];
+        $_SESSION['phone'] = $_POST['phone'];
+
+
+        include ('model/validate.php');
+    }
+
 
 
     $view = new View();
@@ -37,10 +44,12 @@ $f3->route('POST /form2', function(){
 });
 
 $f3->route('POST /form3', function(){
-    $_SESSION['email'] = $_POST['email'];
-    $_SESSION['state'] = $_POST['state'];
-    $_SESSION['seeking'] = $_POST['seeking'];
-    $_SESSION['biography'] = $_POST['bio'];
+        $_SESSION['email'] = $_POST['email'];
+        $_SESSION['state'] = $_POST['state'];
+        $_SESSION['seeking'] = $_POST['seeking'];
+        $_SESSION['biography'] = $_POST['bio'];
+
+
 
 
 
@@ -49,8 +58,18 @@ $f3->route('POST /form3', function(){
 });
 
 $f3->route('POST /results', function($f3){
-   $_SESSION['inHobbies'] = $_POST['indoors'];
-   $_SESSION['outHobbies'] = $_POST['outdoors'];
+    if(isset($_POST['submit']))
+    {
+        $_SESSION['inHobbies'] = $_POST['indoors'];
+        $_SESSION['outHobbies'] = $_POST['outdoors'];
+
+
+        include ('model/validate.php');
+
+        $_SESSION['errors'] = $_POST['errors'];
+        $_SESSION['success'] = $_POST['success'];
+    }
+
 
    // Set all session variables
     $f3->set('fName', $_SESSION['fName']);
@@ -64,6 +83,10 @@ $f3->route('POST /results', function($f3){
     $f3->set('biography', $_SESSION['biography']);
    $f3->set('inHobbies', $_SESSION['inHobbies']);
    $f3->set('outHobbies', $_SESSION['outHobbies']);
+   $f3->set('errors', $_SESSION['errors']);
+   $f3->set('success', $_SESSION['success']);
+
+   
 
     echo Template::instance()->render('views/results.html');
 });

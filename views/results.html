@@ -28,7 +28,7 @@
             <!-- Form information -->
                 <ul class="list-group">
                     <li class="list-group-item">
-                        <p>Name: {{ @fName }} {{ @lName }}</p>
+                        Name: {{ @fName }} {{ @lName }}
                     </li>
                     <li class="list-group-item">
                         Gender: {{ @gender }}
@@ -53,7 +53,7 @@
                         <repeat group="{{ @inHobbies }}" value="{{ @value }}">
                             {{ @value }}
                         </repeat>
-                        <repeat group="{{ $outHobbies }}" value="{{ @value }}">
+                        <repeat group="{{ @outHobbies }}" value="{{ @value }}">
                             {{ @value }}
                         </repeat>
                     </li>
