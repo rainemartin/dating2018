@@ -28,34 +28,36 @@
             <!-- Form information -->
                 <ul class="list-group">
                     <li class="list-group-item">
-                        Name: {{ @fName }} {{ @lName }}
+                        Name: {{@SESSION.member->getfName() }} {{ @SESSION.member->getlName() }}
                     </li>
                     <li class="list-group-item">
-                        Gender: {{ @gender }}
+                        Gender: {{ @SESSION.member->getGender() }}
                     </li>
                     <li class="list-group-item">
-                        Age: {{ @age }}
+                        Age: {{ @SESSION.member->getAge() }}
                     </li>
                     <li class="list-group-item">
-                        Phone: {{ @phone }}
+                        Phone: {{ @SESSION.member->getPhone() }}
                     </li>
                     <li class="list-group-item">
-                        Email: {{ @email }}
+                        Email: {{ @SESSION.member->getEmail() }}
                     </li>
                     <li class="list-group-item">
-                        State: {{ @state }}
+                        State: {{ @SESSION.member->getState() }}
                     </li>
                     <li class="list-group-item">
-                        Seeking: {{ @seeking }}
+                        Seeking: {{ @SESSION.member->getSeeking() }}
                     </li>
                     <li class="list-group-item">
                         Interests:
-                        <repeat group="{{ @inHobbies }}" value="{{ @value }}">
-                            {{ @value }}
-                        </repeat>
-                        <repeat group="{{ @outHobbies }}" value="{{ @value }}">
-                            {{ @value }}
-                        </repeat>
+                        <check if="{{ @SESSION }}">
+                            <repeat group="{{ @SESSION.member->getIndoorInterests() }}" value="{{ @value }}">
+                                {{ @value }}
+                            </repeat>
+                            <repeat group="{{ @SESSION.member->getOutdoorInterests() }}" value="{{ @value }}">
+                                {{ @value }}
+                            </repeat>
+                        </check>
                     </li>
                 </ul>
         </div>
@@ -66,7 +68,7 @@
                  class="center-block img-rounded img-responsive">
             <h3>Biography</h3>
             <p class="text-center">
-                {{ @biography }}
+                {{ @SESSION.member->getBio() }}
             </p>
         </div>
         <div class="col-md-12">

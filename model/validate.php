@@ -19,16 +19,24 @@ function validPhone($phone)
     return !is_numeric($phone) && strlen($phone) < 14;
 }
 
+function validEmail($email)
+{
+    if(filter_var($email, FILTER_VALIDATE_EMAIL) == false)
+        return false;
+    else
+        return true;
+}
+
 function validIndoor($indoor)
 {
-    global $f3;
-    return in_array($indoor, $f3->get('inHobbies'));
+    $validIndoor = array('tv', 'puzzles', 'movies', 'reading', 'cooking', 'playing cards', 'board games', 'video games');
+    return in_array($indoor, $validIndoor);
 }
 
 function validOutdoor($outdoor)
 {
-    global $f3;
-    return in_array($outdoor, $f3->get('outHobbies'));
+    $validOutdoor = array('hiking', 'walking', 'biking', 'climbing', 'swimming', 'collecting');
+    return in_array($outdoor, $validOutdoor);
 }
 
 function validateForm1($fName, $lName, $age, $phone)
