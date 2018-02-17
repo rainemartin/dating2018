@@ -33,34 +33,29 @@
         </div>
         <div class="panel-body">
             <!-- Form fields aligned to the left -->
-                    <check if="{{ @success > 0}}">
-                          <true>
-                              <form action="./form2" method="POST">
-                          </true>
-                        <false>
-                            <form action="#" method="POST">
-                        </false>
-                    </check>
+            <form action="./form1" method="POST">
                 <div class="col-md-8">
                     <div class="form-group has-feedback">
                         <!-- First Name -->
                         <label for="fName" class="control-label" >First Name</label>
-                        <input id="fName" name="fName" type="text" class="form-control"
-                               value="{{ @SESSION.fName }}">
+                        <h6>{{ @errors['fName'] }}</h6>
+                        <input id="fName" name="fName" type="text"
+                               class="form-control" value="{{ @fName }}">
                         <span class="glyphicon glyphicon glyphicon-user form-control-feedback"></span>
                     </div>
 
                     <!-- Last Name -->
                     <div class="form-group">
                         <label for="lName" class="control-label">Last Name</label>
-
-                            <input id="lName" name="lName" type="text" class="form-control"
-                                   value="{{ @lName }}">
+                        <h6>{{ @errors['lName'] }}</h6>
+                        <input id="lName" name="lName" type="text" class="form-control"
+                               value="{{ @lName }}">
                     </div>
 
                     <!-- Age -->
                     <div class="form-group">
                         <label for="age" class="control-label">Age</label>
+                        <h6>{{ @errors['age'] }}</h6>
                         <input id="age" name="age" type="text" class="form-control" value="{{ @age }}">
                     </div>
 
@@ -78,6 +73,7 @@
                     <!-- Phone Number-->
                     <div class="form-group">
                         <label for="phone" class="control-label">Phone Number</label>
+                        <h6>{{ @errors['phone'] }}</h6>
                         <input id="phone" name="phone" class="form-control" value="{{ @phone }}">
                     </div>
                 </div>
@@ -92,7 +88,13 @@
 
                 <!-- Submit Button -->
                 <div class="col-md-12">
-                    <input type="submit" class="btn btn-primary pull-right" value="Next >">
+                    <div class="checkbox">
+                        <p class="radio-checked"><b>Premium Membership</b></p>
+                        <label>
+                            <input type="checkbox" name="memberType" value="memberType">Sign me up for a Premium Account
+                        </label>
+
+                        <input type="submit" class="btn btn-primary pull-right" value="Next >">
                 </div>
 
             </form>
